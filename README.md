@@ -354,5 +354,3 @@ For issues, questions, or suggestions, please create an issue in the repository.
 - 🌓 Dark mode support
 
 ---
-
-**Made with ❤️ for developers**
