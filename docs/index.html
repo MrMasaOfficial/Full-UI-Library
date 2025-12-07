@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Library Documentation</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .docs-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed);
+        }
+
+        .sidebar nav a:hover {
+            background-color: var(--bg-light);
+        }
+
+        .sidebar nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .content {
+            background-color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-section:last-child {
+            border-bottom: none;
+        }
+
+        .code-block {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+            overflow-x: auto;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-block code {
+            color: var(--text-dark);
+        }
+
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .property-table th,
+        .property-table td {
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .property-table th {
+            background-color: var(--bg-light);
+            font-weight: 600;
+        }
+
+        .property-table tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .docs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .sidebar nav {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: var(--spacing-md);
+            }
+
+            .property-table {
+                font-size: 0.9rem;
+            }
+
+            .property-table th,
+            .property-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <h1 class="navbar-brand">UI Library Docs</h1>
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>UI Library Documentation</h1>
+        <p>A lightweight UI library with essential components for building web applications.</p>
+
+        <div class="docs-container">
+            <div class="sidebar">
+                <nav>
+                    <h3>Components</h3>
+                    <ul>
+                        <li><a href="#getting-started" class="doc-link">Getting Started</a></li>
+                        <li><a href="#buttons" class="doc-link">Buttons</a></li>
+                        <li><a href="#cards" class="doc-link">Cards</a></li>
+                        <li><a href="#modals" class="doc-link">Modals</a></li>
+                        <li><a href="#grid" class="doc-link">Grid System</a></li>
+                        <li><a href="#dark-mode" class="doc-link">Dark Mode</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="content">
+                <section id="getting-started" class="doc-section">
+                    <h2>Getting Started</h2>
+                    <p>To use the UI Library, simply include the CSS and JavaScript files in your HTML:</p>
+                    <div class="code-block"><code>&lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;script src="js/main.js"&gt;&lt;/script&gt;</code></div>
+                    <p>All components are ready to use with minimal configuration.</p>
+
+                    <h3>Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h3>📦</h3>
+                            <p>Lightweight & Fast</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🎨</h3>
+                            <p>Customizable Theming</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📱</h3>
+                            <p>Responsive Design</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🌓</h3>
+                            <p>Dark/Light Mode</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="buttons" class="doc-section">
+                    <h2>Buttons</h2>
+                    <p>Buttons are used to trigger actions or navigate within your application.</p>
+
+                    <h3>Basic Button</h3>
+                    <div class="code-block"><code>&lt;button class="btn btn-primary"&gt;Click Me&lt;/button&gt;</code></div>
+
+                    <h3>Button Variants</h3>
+                    <p>Available color variants:</p>
+                    <ul>
+                        <li><code>btn-primary</code> - Blue (primary action)</li>
+                        <li><code>btn-secondary</code> - Gray (secondary action)</li>
+                        <li><code>btn-success</code> - Green (positive action)</li>
+                        <li><code>btn-danger</code> - Red (destructive action)</li>
+                        <li><code>btn-warning</code> - Yellow (cautionary action)</li>
+                        <li><code>btn-info</code> - Cyan (informational action)</li>
+                    </ul>
+
+                    <h3>Button Sizes</h3>
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>btn-sm</code></td>
+                                <td>Small button</td>
+                            </tr>
+                            <tr>
+                                <td>(default)</td>
+                                <td>Medium button</td>
+                            </tr>
+                            <tr>
+                                <td><code>btn-lg</code></td>
+                                <td>Large button</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Button Styles</h3>
+                    <p>Use <code>btn-outline</code> for outlined buttons:</p>
+                    <div class="code-block"><code>&lt;button class="btn btn-primary btn-outline"&gt;Outline Button&lt;/button&gt;</code></div>
+
+                    <h3>Disabled State</h3>
+                    <div class="code-block"><code>&lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></div>
+                </section>
+
+                <section id="cards" class="doc-section">
+                    <h2>Cards</h2>
+                    <p>Cards are containers for displaying grouped content with optional headers, images, and footers.</p>
+
+                    <h3>Basic Card</h3>
+                    <div class="code-block"><code>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;Card Title&lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;p&gt;Card content goes here&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card-footer"&gt;
+    &lt;button class="btn btn-primary btn-sm"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+
+                    <h3>Card with Image</h3>
+                    <div class="code-block"><code>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;Card Title&lt;/div&gt;
+  &lt;div class="card-image"&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;Content&lt;/div&gt;
+&lt;/div&gt;</code></div>
+
+                    <h3>Card Variants</h3>
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>card</code></td>
+                                <td>Basic card with default shadow</td>
+                            </tr>
+                            <tr>
+                                <td><code>card-raised</code></td>
+                                <td>Card with elevated shadow</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Card Parts</h3>
+                    <ul>
+                        <li><code>card-header</code> - Top section, great for titles</li>
+                        <li><code>card-image</code> - Image container</li>
+                        <li><code>card-body</code> - Main content area</li>
+                        <li><code>card-footer</code> - Bottom section, typically for actions</li>
+                    </ul>
+                </section>
+
+                <section id="modals" class="doc-section">
+                    <h2>Modals</h2>
+                    <p>Modals are dialog boxes that overlay the main content and require user interaction.</p>
+
+                    <h3>Modal Markup</h3>
+                    <div class="code-block"><code>&lt;div id="myModal" class="modal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h2&gt;Modal Title&lt;/h2&gt;
+      &lt;button class="modal-close" onclick="closeModal('myModal')"&gt;&times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;Modal content&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-secondary" onclick="closeModal('myModal')"&gt;Close&lt;/button&gt;
+      &lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+
+                    <h3>Opening and Closing Modals</h3>
+                    <div class="code-block"><code>&lt;button class="btn btn-primary" onclick="openModal('myModal')"&gt;Open Modal&lt;/button&gt;
+&lt;button onclick="closeModal('myModal')"&gt;Close&lt;/button&gt;</code></div>
+
+                    <h3>Modal Sizes</h3>
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Max Width</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(default)</td>
+                                <td>600px</td>
+                            </tr>
+                            <tr>
+                                <td><code>modal-sm</code></td>
+                                <td>400px</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Closing Modals</h3>
+                    <ul>
+                        <li>Click the close button (×)</li>
+                        <li>Click outside the modal</li>
+                        <li>Press the ESC key</li>
+                        <li>Call <code>closeModal(modalId)</code></li>
+                    </ul>
+                </section>
+
+                <section id="grid" class="doc-section">
+                    <h2>Grid System</h2>
+                    <p>A simple CSS Grid-based layout system for creating responsive layouts.</p>
+
+                    <h3>Two Column Grid</h3>
+                    <div class="code-block"><code>&lt;div class="grid grid-2"&gt;
+  &lt;div class="grid-item"&gt;Column 1&lt;/div&gt;
+  &lt;div class="grid-item"&gt;Column 2&lt;/div&gt;
+&lt;/div&gt;</code></div>
+
+                    <h3>Grid Classes</h3>
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Columns (Desktop)</th>
+                                <th>Columns (Tablet)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>grid-2</code></td>
+                                <td>2</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-3</code></td>
+                                <td>3</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-4</code></td>
+                                <td>4</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Responsive Behavior</h3>
+                    <ul>
+                        <li><code>grid-2</code> and <code>grid-3</code> collapse to 1 column on screens below 480px</li>
+                        <li><code>grid-4</code> becomes 2 columns below 768px</li>
+                        <li>All grids use 1.5rem gap between items</li>
+                    </ul>
+                </section>
+
+                <section id="dark-mode" class="doc-section">
+                    <h2>Dark/Light Mode</h2>
+                    <p>The library includes built-in dark mode support with automatic persistence.</p>
+
+                    <h3>How It Works</h3>
+                    <ul>
+                        <li>Click the theme toggle button in the navbar (🌙/☀️)</li>
+                        <li>Your preference is saved to localStorage</li>
+                        <li>The preference is restored when you return</li>
+                    </ul>
+
+                    <h3>CSS Variables</h3>
+                    <p>All colors are defined using CSS custom properties that change with the theme:</p>
+                    <div class="code-block"><code>--primary-color: #007bff
+--text-dark: #212529
+--bg-white: #ffffff
+--border-color: #dee2e6</code></div>
+
+                    <h3>Customizing Colors</h3>
+                    <p>Override CSS variables in your own stylesheet:</p>
+                    <div class="code-block"><code>:root {
+  --primary-color: #ff6b6b;
+  --success-color: #51cf66;
+}
+
+[data-theme="dark"] {
+  --text-dark: #e9ecef;
+}</code></div>
+                </section>
+
+                <section class="doc-section">
+                    <h2>Browser Support</h2>
+                    <ul>
+                        <li>Chrome (latest)</li>
+                        <li>Firefox (latest)</li>
+                        <li>Safari (latest)</li>
+                        <li>Edge (latest)</li>
+                    </ul>
+                </section>
+
+                <section class="doc-section">
+                    <h2>License</h2>
+                    <p>MIT License - Feel free to use in your projects!</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const docLinks = document.querySelectorAll('.doc-link');
+        docLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                docLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        if (docLinks.length > 0) {
+            docLinks[0].classList.add('active');
+        }
+    </script>
+</body>
+</html>
